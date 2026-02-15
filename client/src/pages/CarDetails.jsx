@@ -30,6 +30,9 @@ const CarDetails = () => {
       if (data.statusMessage === "success") {
         toast.success(data.message);
         navigate("/my-bookings");
+
+        setPickupDate("");
+        setReturnDate("");
       } else {
         toast.error(data.message);
       }

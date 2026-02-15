@@ -43,7 +43,6 @@ const Cars = () => {
         pickupDate,
         returnDate,
       });
-      console.log(data);
       if (data.statusMessage === "success") {
         setFilteredCars(data.availableCars);
         if (data.availableCars.length === 0) {

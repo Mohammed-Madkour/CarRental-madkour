@@ -85,7 +85,7 @@ export const getOwnerBookings = catchError(async (req, res, next) => {
   if (req.user.role !== "owner") return next(new AppError("Unauthorized", 403));
 
   const bookings = await bookingModel
-    .find({ user: _id })
+    .find({ owner: req.user._id })
     .populate("car user")
     .select("-user.password")
     .sort({ createdAt: -1 });

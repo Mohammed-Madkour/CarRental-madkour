@@ -16,7 +16,7 @@ const AddCar = () => {
     category: "",
     transmission: "",
     fuel_type: "",
-    seating_capacity: "",
+    seating_capacity: 0,
     location: "",
     description: "",
   });
@@ -51,11 +51,11 @@ const AddCar = () => {
         });
       } else {
         toast.error(data.message);
-        console.log(data.message)
+        console.log(data.message);
       }
     } catch (error) {
       toast.error(error.response?.data?.message);
-      console.log("error",error.message)
+      console.log("error", error.message);
     } finally {
       setIsLoading(false);
     }
@@ -130,7 +130,7 @@ const AddCar = () => {
             <label className="text-base font-medium">Year</label>
             <input
               type="number"
-              value={carData.year}
+              value={carData.year || ""}
               className="w-full border-borderColor border outline-none px-3 py-2 rounded mt-2"
               required
               onChange={(e) => setCarData({ ...carData, year: e.target.value })}
@@ -147,7 +147,7 @@ const AddCar = () => {
             <input
               type="number"
               min={0}
-              value={carData.pricePerDay}
+              value={carData.pricePerDay || ""}
               className="w-full border-borderColor border outline-none px-3 py-2 rounded mt-2"
               required
               onChange={(e) =>
@@ -220,7 +220,7 @@ const AddCar = () => {
             <label className="font-medium text-base">Seating Capacity</label>
             <input
               type="number"
-              value={carData.seating_capacity}
+              value={carData.seating_capacity || ""}
               className="w-full border-borderColor border outline-none px-3 py-2 rounded mt-2"
               required
               onChange={(e) =>
